@@ -1,4 +1,4 @@
-package com.example;
+package codepen.bean;
 
 import org.springframework.context.annotation.Configuration;
 

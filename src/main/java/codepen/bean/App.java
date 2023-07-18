@@ -1,5 +1,7 @@
-package com.example;
+package codepen.bean;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,8 +15,18 @@ public class App {
     super();
   }
 
+  @PreDestroy
+  public void destroy() {
+    return;
+  }
+
   public void execute() {
     System.out.println(this.greeting.greet());
+  }
+
+  @PostConstruct
+  public void init() {
+    return;
   }
 
 }

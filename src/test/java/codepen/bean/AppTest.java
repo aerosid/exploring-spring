@@ -1,4 +1,4 @@
-package com.example;
+package codepen.bean;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -31,7 +31,7 @@ public class AppTest {
   public void executeInSpringContext() {
     try (
         AnnotationConfigApplicationContext appContext =
-            new AnnotationConfigApplicationContext("com.example");
+            new AnnotationConfigApplicationContext("codepen.bean");
     ) {
       App app = appContext.getBean("app", App.class);
       app.execute();
