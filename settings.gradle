@@ -1,1 +1,3 @@
-rootProject.name = 'demo'
+//Settings.getRootProject()
+//ProjectDescriptor.getName()
+rootProject.name = 'exploring-spring'
