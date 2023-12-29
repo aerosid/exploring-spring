@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Index</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>
+  </head>
+  <body style="padding: 0.5rem; font-family: 'Roboto', sans-serif; font-size: 1.2rem;">
+    <h1>Index</h1>
+    <p>Status: <span id="response">...</span></p>
+    <script type="text/javascript">
+      window.onload = async () => {
+        const response = await fetch("./api/doRequest");
+        const payload = await response.json();
+        $("#response").empty().html(payload.status);
+        return;
+      };
+    </script>
+  </body>
+</html>

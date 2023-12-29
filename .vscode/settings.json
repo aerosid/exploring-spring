@@ -1,0 +1,5 @@
+{
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "editor.tabSize": 2,
+  "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64"
+}
