@@ -5,11 +5,20 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import codepen.jdbc.City;
+
 public class IgnoreMe {
 
   @Test
   public void classForName() throws Throwable {
     Class.forName("com.mysql.cj.jdbc.Driver");    
+  }
+
+  @Test
+  public void fromJson() throws Throwable {
+    String json = "{\"cityId\":0,\"name\":\"Bengaluru\",\"state\":\"Karnataka\"}";
+    codepen.jdbc.City c = City.fromJson(json);
+    System.out.println("id:" + c.cityId + ", name:" + c.name + ", state:" + c.state);
   }
 
   @Test
@@ -28,5 +37,15 @@ public class IgnoreMe {
       Assertions.assertEquals(ptrA, ptrB);
     }
     return;
+  }  
+
+  @Test
+  public void toJson() throws Throwable {
+    codepen.jdbc.City c = new codepen.jdbc.City();
+    c.cityId = 0L;
+    c.name = "Bengaluru";
+    c.state = "Karnataka";
+    String json = c.toJson();
+    System.out.println(json);
   }  
 }

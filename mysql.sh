@@ -14,5 +14,5 @@ docker run \
 --network host \
 --volume /home/ubuntu/vscode/exploring-go/misc/mysql:/var/lib/mysql \
 mysql:8.0.30
-# sleep 3s
-# docker exec -it mysql /bin/bash -c "mysql -uroot -phello"
+sleep 3s
+docker exec -it mysql /bin/bash -c "mysql -uroot -p"

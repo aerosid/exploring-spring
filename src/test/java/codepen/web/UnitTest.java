@@ -19,7 +19,21 @@ public class UnitTest {
   private DbOperation dbOperation;
 
   @Test
-  public void test() throws Exception {
+  public void doGet() throws Exception {
+    String uri = "/do-get";
+    MockHttpServletRequestBuilder reqBuilder =
+        org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+        .get(uri)
+        .header("User-Agent", "Spring Boot")
+        .header("User-Agent", "Java");
+    ResultHandler resHandler =
+        org.springframework.test.web.servlet.result.MockMvcResultHandlers.print();
+    this.mockMvc.perform(reqBuilder).andDo(resHandler);
+    return;
+  }
+
+  @Test
+  public void getVersion() throws Exception {
     String uri = "/";
     MockHttpServletRequestBuilder reqBuilder =
         org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get(uri);

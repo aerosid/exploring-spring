@@ -1,5 +1,8 @@
 package codepen.jdbc;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /* 
 create database sample;
 
@@ -33,12 +36,16 @@ public class City {
     this.cityId = Long.MIN_VALUE;
   }
 
-  public static City fromJson() {
-    return null;
+  public static City fromJson(String json) throws JsonProcessingException {
+    ObjectMapper mapper = new ObjectMapper();
+    codepen.jdbc.City c = mapper.readValue(json, City.class);
+    return c;
   }
 
-  public String toJson() {
-    return null;
+  public String toJson() throws JsonProcessingException {
+    ObjectMapper mapper = new ObjectMapper();
+    String json = mapper.writeValueAsString(this);
+    return json;
   }
 
 }
