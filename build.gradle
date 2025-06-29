@@ -7,7 +7,7 @@ plugins {
   id('checkstyle')
   id('jacoco')
   //version() is a method on the object returned by id()
-  //See https://docs.gradle.org/current/dsl/org.gradle.plugin.use.PluginDependenciesSpec.html  
+  //See https://docs.gradle.org/current/dsl/org.gradle.plugin.use.PluginDependenciesSpec.html
   id('org.springframework.boot').version('2.7.6')
   id('io.spring.dependency-management').version('1.0.15.RELEASE')
 }
@@ -17,7 +17,7 @@ group = 'exploring-spring'
 version = '0.0.0'
 repositories {
   //PluginManagementSpec.repositories?(Action<? super RepositoryHandler> repositoriesAction)
-  mavenCentral() //RepositoryHandler.mavenCentral()  https://repo.maven.apache.org/maven2/ 
+  mavenCentral() //RepositoryHandler.mavenCentral()  https://repo.maven.apache.org/maven2/
 }
 dependencies {
   // implementation() and testImplementation() methods added by java plugin
@@ -30,16 +30,19 @@ dependencies {
   implementation(group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.4')
   implementation(group: 'org.hibernate', name: 'hibernate-core', version: '5.3.5.Final')
   testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test')
+  // See https://docs.gradle.org/current/userguide/java_testing.html#using_junit5
+  testImplementation(group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.7.1')
+  testRuntimeOnly(group: 'org.junit.platform', name: 'junit-platform-launcher')
 }
-//Extensions are added to the project by plugins. 
+//Extensions are added to the project by plugins.
 //Each extension is available as a method which takes a closure or Action as a parameter.
 java {
   //JavaPluginExtension.setSourceCompatibility()
-  sourceCompatibility = "11"
+  sourceCompatibility = "17"
   //JavaPluginExtension.setTargetCompatibility()
-  targetCompatibility = "11"
+  targetCompatibility = "17"
 }
-//Extensions are added to the project by plugins. 
+//Extensions are added to the project by plugins.
 //Each extension is available as a method which takes a closure or Action as a parameter.
 //See https://docs.gradle.org/current/dsl/org.gradle.api.plugins.quality.CheckstyleExtension.html
 checkstyle {
@@ -61,3 +64,4 @@ tasks.named('test') {
   //Test.useJUnitPlatform()
   useJUnitPlatform() // JUnit Platform should be used to discover and execute the tests
 }
+
